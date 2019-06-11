@@ -30,6 +30,7 @@
       var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];      
 
       var message = document.getElementById('flash-message');
+     
 
       if (computerChoices.indexOf(userGuess) != -1) {
         message.textContent = '';
@@ -38,8 +39,14 @@
             losses = 0; 
 
         }
+        /* How can I apply "only alphabet letters accepted? */
+             target.textContent = "Only letters of the alphabet are acceptable.";
+            target.textContent = "Only letters of the alphabet are acceptable.";
+        /* How can I have a countdown list saying how many guesses you have left?
 
         /* how can I simplify and not have to go A-Z below*/
+        
+        
         if (
             (computerGuess === "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" && userGuess === "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" ) ||
             (computerGuess === "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" && userGuess !== "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" )
