@@ -1,6 +1,7 @@
-<script type="text/javascript">
+
+
     
-    // Creates an array that lists out all of the options (Letter from the alphabet). 
+    //*Creates an array that lists out all of the options (Letter from the alphabet). 
     var computerChoices= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
 
     var game= 0;
@@ -25,7 +26,7 @@
 
         }
         /* How can I apply "only alphabet letters accepted? */
-             target.textContent = "Only letters of the alphabet are acceptable.";
+            target.textContent = "Only letters of the alphabet are acceptable.";
             target.textContent = "Only letters of the alphabet are acceptable.";
         /* How can I have a countdown list saying how many guesses you have left?
 
@@ -54,4 +55,4 @@
       var game = document.getElementById('game');
       game.innerHTML = html;
     };
-  </script>
+ 
