@@ -9,19 +9,20 @@
     
     document.onkeyup = function(event) {
         userKeyPressed = event.key;
-
-        if (chances === 0) {
-            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+        
+        if (computerGuess !== userKeyPressed) {
+            if (chances === 0) {
+            losses++
             chances = 9;
         }
         
-        if (computerGuess !== userKeyPressed) {
             if (
                 wrongGuesses.indexOf(userKeyPressed == -1 
             )){
                 wrongGuesses.push(userKeyPressed);
                     chances--;
-                } losses++;
+                }
                 console.log("chances:" + chances);
             } else {
                 wins++;
@@ -29,19 +30,16 @@
 
     
         console.log(wrongGuesses);
-        }
+     
 
         var html =
-        "Losses:" + losses  +
-        "<p> Guesses Left:" + chances + "</p>";
+        "<p> Losses: " + losses  + "</p>" +
+        "<p> Guesses Left: " + chances + "</p>"+
+        "<p> Wins: "+ wins +"</p>" +
+        "<p> Your guesses so far :" + wrongGuesses + "</p>";
 
         document.getElementById('game').innerHTML = html;
 
-        // Finding it difficult to get Javascript code to show up as HTML in browswer. HELP!
-            //document.write ?
-            //console.log ?
-        
-        // 
-    
+    }
 
        
