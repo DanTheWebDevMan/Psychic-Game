@@ -1,58 +1,47 @@
 
-
-    
-    //*Creates an array that lists out all of the options (Letter from the alphabet). 
-    var computerChoices= ["a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z"];
-
-    var game= 0;
+    var chances = 0;
     var wins = 0;
     var losses = 0;
-    var guessesLeft= 5;
-   
+    var computerGuess;
+    var wrongGuesses = [];
+    var computerChoices = 
+    ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+    
     document.onkeyup = function(event) {
+        userKeyPressed = event.key;
 
-      var userGuess = event.key;
-
-      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];      
-
-      var message = document.getElementById('flash-message');
-     
-
-      if (computerChoices.indexOf(userGuess) != -1) {
-        message.textContent = '';
-        if (wins === 5 || losses ===5) {
-            wins = 0;
-            losses = 0; 
-
+        if (chances === 0) {
+            computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+            chances = 9;
         }
-        /* How can I apply "only alphabet letters accepted? */
-            target.textContent = "Only letters of the alphabet are acceptable.";
-            target.textContent = "Only letters of the alphabet are acceptable.";
-        /* How can I have a countdown list saying how many guesses you have left?
-
-        /* how can I simplify and not have to go A-Z below*/
         
-        
-        if (
-            (computerGuess === "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" && userGuess === "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" ) ||
-            (computerGuess === "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" && userGuess !== "a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r","s","t","u","v","w","x","y","z" )
-            ) {
-                losses++;
+        if (computerGuess !== userKeyPressed) {
+            if (
+                wrongGuesses.indexOf(userKeyPressed == -1 
+            )){
+                wrongGuesses.push(userKeyPressed);
+                    chances--;
+                } losses++;
+                console.log("chances:" + chances);
             } else {
-                wins++;;
+                wins++;
             }
-        } else {
-            message.textContent = "Only alphabet letters are acceptable choices";
+
+    
+        console.log(wrongGuesses);
         }
 
-      var html = 
-      "<p>Your guess so far: " + userGuess + "</p>" +
-      "<p>Computer Guess: " + computerGuess + "</p>" +
-      "<p>wins: " + wins + "</p>" +
-      "<p>losses: " + losses + "</p>" +
-      "<p> Guesses left:" + guessesLeft + "</p>"  ;
+        var html =
+        "Losses:" + losses  +
+        "<p> Guesses Left:" + chances + "</p>";
 
-      var game = document.getElementById('game');
-      game.innerHTML = html;
-    };
- 
+        document.getElementById('game').innerHTML = html;
+
+        // Finding it difficult to get Javascript code to show up as HTML in browswer. HELP!
+            //document.write ?
+            //console.log ?
+        
+        // 
+    
+
+       
